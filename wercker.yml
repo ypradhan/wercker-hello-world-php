@@ -1,6 +1,6 @@
 box: php:7
 services:
-  - id: postgres
+  id: postgres
      env:
        POSTGRES_PASSWORD: ourlittlesecret
        POSTGRES_USER: myuser
