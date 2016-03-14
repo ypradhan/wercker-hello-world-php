@@ -1,0 +1,35 @@
+box: php:7
+services:
+  - wercker/postgresql
+build:
+  steps:
+    - install-packages:
+        packages: git
+    - script:
+        name: install phpunit
+        code: |-
+          curl -L https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit
+          chmod +x /usr/local/bin/phpunit
+    - script:
+        name: install composer
+        code: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+    - script:
+        name: install dependencies
+        code: composer install --no-interaction
+    - hgen/gulp:
+        tasks: test
+    - script: 
+        name: env file
+        code: cp .env.example .env.testing
+    - script: 
+        name: Update Database
+        code: code: tests/doctrine-module orm:schema-tool:update --force
+    - script:
+        name: Serve application
+        code: php -S localhost:8000 >> /dev/null &
+    - script:
+        name: PHPUnit integration tests
+        code: phpunit --configuration phpunit.xml --coverage-html tests/coverage
+    
+        
+
