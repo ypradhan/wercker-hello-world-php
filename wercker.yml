@@ -23,7 +23,7 @@ build:
         code: cp .env.example .env.testing
     - script: 
         name: Update Database
-        code: code: tests/doctrine-module orm:schema-tool:update --force
+        code: tests/doctrine-module orm:schema-tool:update --force
     - script:
         name: Serve application
         code: php -S localhost:8000 >> /dev/null &
