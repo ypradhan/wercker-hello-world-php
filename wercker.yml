@@ -1,6 +1,9 @@
 box: php:7
 services:
-  - wercker/postgresql
+  - id: postgres
+     env:
+       POSTGRES_PASSWORD: ourlittlesecret
+       POSTGRES_USER: myuser
 build:
   steps:
     - install-packages:
