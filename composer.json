@@ -1,0 +1,40 @@
+{
+    "name": "yoradhan/wercker-hello-world-php",
+    "description": "Cummings Properties",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "cummings",
+        "zf2"
+    ],
+    "require": {
+        "php": ">=7.0",
+        "bjyoungblood/bjy-authorize": "^1.4",
+        "danielss89/zfc-user-admin": "dev-master",
+        "doctrine/doctrine-orm-module": "^0.9.1",
+        "evandotpro/edp-superluminal": "dev-master",
+        "jms/serializer": "^1.1",
+        "monolog/monolog": "^1.17",
+        "mtymek/mt-mail": "^1.1",
+        "nesbot/carbon": "~1.21",
+        "vlucas/phpdotenv": "^2.2",
+        "zendframework/zendframework": "~2.5",
+        "zf-commons/zfc-user-doctrine-orm": "^1.0"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.5",
+        "mockery/mockery": "^0.9.4",
+        "phpspec/prophecy": "^1.5",
+        "phpunit/phpunit": "^5.1",
+        "san/san-session-toolbar": "^0.2.0",
+        "symfony/var-dumper": "^2.6",
+        "zendframework/zend-developer-tools": "dev-master"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "composer dump-autoload --optimize"
+        ],
+        "post-update-cmd": [
+            "composer dump-autoload --optimize"
+        ]
+    }
+}
