@@ -1,9 +1,9 @@
 box: php:7
 services:
   id: postgres
-     env:
-       POSTGRES_PASSWORD: ourlittlesecret
-       POSTGRES_USER: myuser
+  env:
+    POSTGRES_PASSWORD: ourlittlesecret
+    POSTGRES_USER: myuser
 build:
   steps:
     - install-packages:
